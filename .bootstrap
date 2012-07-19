@@ -1,0 +1,34 @@
+# Flipboard stuff
+if [[ -f ~/dotfiles/.flipboard ]]; then
+    . ~/dotfiles/.flipboard
+fi
+
+# aliases and function
+if [[ -f ~/dotfiles/.bashrc ]]; then
+    . ~/dotfiles/.bashrc
+fi
+
+if [[ -f ~/.git-completion.bash ]]; then
+    . ~/.git-completion.bash
+fi
+
+if [[ -f ~/bash/android.sh ]]; then
+    . ~/bash/android.sh
+fi
+
+if [[ -f ~/bash/bashperiments.sh ]]; then
+    . ~/bash/bashperiments.sh
+fi
+
+if [[ -f ~/bash/utils.sh ]]; then
+    . ~/bash/utils.sh
+fi
+
+PATH=/usr/local/bin:$PATH
+PATH=$PATH:${HOME}/bash:/Applications/XAMPP/xamppfiles/bin
+PATH=$PATH:${HOME}/Programming/Android/android-sdk-mac_x86/tools
+PATH=$PATH:${HOME}/Programming/Android/android-sdk-mac_x86/platform-tools
+PATH=$PATH:$HOME/Library/Haskell/bin
+PATH=/opt/local/bin:/opt/local/sbin:$PATH #MacPorts
+
+export PATH

@@ -25,6 +25,8 @@ alias lsa="ls -a"
 #and change some colors
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
+alias love="~/Programming/Love2D/love.app/Contents/MacOs/love"
+alias md5sum='md5 -r'
 
 #set NODE_PATH
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
