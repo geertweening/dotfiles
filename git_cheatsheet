@@ -1,0 +1,49 @@
+# Git Cheat Sheet #
+
+$ git fetch origin # update origin remote branches
+$ git log master..origin/master # changes on the master branch (commit-level)
+$ git log -p master..origin/master # changes on the master branch (code-level, "patch")
+$ git merge origin/master # merge changes of master branch
+$ git pull # update remote and merge changes in current branch
+$ git checkout -b bug-toc-tile # create local branch
+$ git diff master -- Classes/SomeClass.m # changes limited to file
+$ git add -i # interactively add parts
+$ git diff --staged # staged changes vs. current HEAD
+$ git commit
+$ git diff master > bug-toc-file.patch
+$ git checkout master
+$ git merge bug-toc-tile
+$ git push origin master # push current local branch to remote branch named `master` (creates if doesn't exist)
+$ git branch -d bug-toc-tile
+$ git push origin :ui-fixes # delete a remote branch
+$ git cherry-pick 123adfasdf123123adfasdf123 # on branch to cherry-pick to the commit, creates new commit with new hash
+$ git checkout path/to/file/to/revert # discard changes in specific file
+$ git checkout . # discard changes in all unstaged files
+
+$ git stash
+$ git stash list
+$ git stash pop
+$ git stash pop stash@{1}
+$ git stash drop stash@{0}
+$ git stash show stash@{0}
+$ git stash show -p stash@{0}
+$ git stash save "Content Guide hint animation"
+$ git stash --patch # stash only specific files: 'd' for skipping 'a' for stashing
+$ git stash clear
+
+$ git checkout -t origin/iphone # track remote iphone branch on local iphone branch (automatically created)
+$ git checkout curator Classes/FLSheetViewController.h # copy file from other branch, "curator" could also be a specific commit hash
+
+$ git tag # list tags
+$ git show-ref --tags # list tags with commit hash (lightweight) or tag hash (annotated)
+$ git tag -ln tagname # show tag with commit message (lightweight) or tag message (annotated)
+$ git tag -d tagname # delete local tag
+$ git push origin :refs/tags/tagname # delete remote tag
+
+$ git config user.email "example@email.com"
+
+$ git config --global core.excludesfile "~/.gitignore_global_osx"
+
+$ git update-index --assume-unchanged <file> # To temporarily ignore changes in a file: 
+
+$ git update-index --no-assume-unchanged <file> # To track changes again:
