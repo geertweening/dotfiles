@@ -12,6 +12,10 @@ if [[ -f ~/.git-completion.bash ]]; then
     . ~/.git-completion.bash
 fi
 
+if [[ -f ~/dotfiles/.utils.sh ]]; then
+    . ~/dotfiles/.utils.sh
+fi
+
 if [[ -f ~/bash/android.sh ]]; then
     . ~/bash/android.sh
 fi
@@ -20,9 +24,6 @@ if [[ -f ~/bash/bashperiments.sh ]]; then
     . ~/bash/bashperiments.sh
 fi
 
-if [[ -f ~/bash/utils.sh ]]; then
-    . ~/bash/utils.sh
-fi
 
 PATH=/usr/local/bin:$PATH
 PATH=$PATH:${HOME}/bash:/Applications/XAMPP/xamppfiles/bin
