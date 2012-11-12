@@ -45,5 +45,7 @@ $ git config user.email "example@email.com"
 $ git config --global core.excludesfile "~/.gitignore_global_osx"
 
 $ git update-index --assume-unchanged <file> # To temporarily ignore changes in a file: 
-
 $ git update-index --no-assume-unchanged <file> # To track changes again:
+$ git ls-files --deleted -z | git update-index --assume-unchanged -z --stdin  # ignore all deleted files
+$ git ls-files -v | grep ^"[a-z]" # list assume-unchanged files
+$ git ls-files -v | grep ^"[a-z]" | cut -c3-  # get assume-unchanged
