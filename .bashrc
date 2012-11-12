@@ -28,11 +28,23 @@ export LSCOLORS=dxfxcxdxbxegedabagacad
 alias love="~/Programming/Love2D/love.app/Contents/MacOs/love"
 alias md5sum='md5 -r'
 
+#display git cheatsheet
+alias git-cheats="cat ~/dotfiles/git_cheatsheet"
+
+#flush dns
+alias flush-dns="dscacheutil -flushcachecd"
+
+# program aliases
+alias eclipse="open -a Eclipse\ Java"
+alias sublime="open -a Sublime\ Text\ 2"
+
 #set NODE_PATH
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 export NODE_PATH
 
+#set pytyon scripts
+export PATH=/usr/local/share/python:$PATH
 
 #Regular Colors
 txtblk='\[\e[0;30m\]' # Black
