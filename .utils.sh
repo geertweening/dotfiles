@@ -2,6 +2,10 @@ grepinr() {
     grep -inr "$1" *
 }
 
+grepinra() {
+    grep -inr "$1" * .*
+}
+
 unrar-scene() {
     echo "unrar!"
     SOURCE=$1

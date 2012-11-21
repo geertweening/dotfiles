@@ -1,0 +1,1 @@
+$ aapt dump badging <path-to-apk> # get classpath of apk

@@ -31,6 +31,9 @@ alias md5sum='md5 -r'
 #display git cheatsheet
 alias git-cheats="cat ~/dotfiles/git_cheatsheet"
 
+#display android cheatsheet
+alias android-cheats="cat ~/dotfiles/android_cheatsheet"
+
 #flush dns
 alias flush-dns="dscacheutil -flushcachecd"
 

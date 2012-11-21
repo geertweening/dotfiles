@@ -49,3 +49,5 @@ $ git update-index --no-assume-unchanged <file> # To track changes again:
 $ git ls-files --deleted -z | git update-index --assume-unchanged -z --stdin  # ignore all deleted files
 $ git ls-files -v | grep ^"[a-z]" # list assume-unchanged files
 $ git ls-files -v | grep ^"[a-z]" | cut -c3-  # get assume-unchanged
+
+$ git reset --soft ^HEAD # undo last commit, back to staging
