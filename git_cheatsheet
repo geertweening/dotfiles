@@ -11,12 +11,14 @@ $ git add -i # interactively add parts
 $ git diff --staged # staged changes vs. current HEAD
 $ git commit
 $ git diff master > bug-toc-file.patch
+$ git diff farnsworth:AndroidManifest.xml master:AndroidManifest.xml # diff between two files in different branches
 $ git checkout master
 $ git merge bug-toc-tile
 $ git push origin master # push current local branch to remote branch named `master` (creates if doesn't exist)
 $ git branch -d bug-toc-tile
 $ git push origin :ui-fixes # delete a remote branch
-$ git cherry-pick 123adfasdf123123adfasdf123 # on branch to cherry-pick to the commit, creates new commit with new hash
+$ git cherry-pick commit_sha # on branch to cherry-pick to the commit, creates new commit with new hash
+$ git cherry-pick A..B # cherry-picks range of commits
 $ git checkout path/to/file/to/revert # discard changes in specific file
 $ git checkout . # discard changes in all unstaged files
 
@@ -51,3 +53,4 @@ $ git ls-files -v | grep ^"[a-z]" # list assume-unchanged files
 $ git ls-files -v | grep ^"[a-z]" | cut -c3-  # get assume-unchanged
 
 $ git reset --soft ^HEAD # undo last commit, back to staging
+$ git reset --hard HEAD # undo merge
