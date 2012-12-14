@@ -1,1 +1,2 @@
 $ aapt dump badging <path-to-apk> # get classpath of apk
+$ adb shell setprop debug.checkjni 1 # enable checkJNI
