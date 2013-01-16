@@ -43,7 +43,7 @@ $ git tag -d tagname # delete local tag
 $ git push origin :refs/tags/tagname # delete remote tag
 
 $ git config user.email "example@email.com"
-
+$ git config --global core.editor "mate -w"
 $ git config --global core.excludesfile "~/.gitignore_global_osx"
 
 $ git update-index --assume-unchanged <file> # To temporarily ignore changes in a file: 
@@ -54,3 +54,5 @@ $ git ls-files -v | grep ^"[a-z]" | cut -c3-  # get assume-unchanged
 
 $ git reset --soft ^HEAD # undo last commit, back to staging
 $ git reset --hard HEAD # undo merge
+
+$ git push -f origin android-tablet-no-scroll 
