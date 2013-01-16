@@ -41,6 +41,13 @@ alias flush-dns="dscacheutil -flushcachecd"
 alias eclipse="open -a Eclipse\ Java"
 alias sublime="open -a Sublime\ Text\ 2"
 
+# todo.txt
+PATH=$PATH:"~/todo-txt/"
+alias todo='~/todo-txt/todo.sh -d ~/todo-txt/todo.cfg'
+source ~/todo-txt/todo_completion
+complete -F _todo todo
+export TODOTXT_DEFAULT_ACTION=ls
+
 #set NODE_PATH
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
