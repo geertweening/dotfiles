@@ -2,7 +2,7 @@
 # export PS1="\033]0;\h\007\n\e[0;32m[\t \u@\h \w]\e[0m\n> "
 
 # if [ hash brew 2>&- && -f `brew --prefix`/etc/bash_completion ]; then
-if [ -f `brew --prefix`/etc/bash_completion ]; then
+if [ hash brew 2>/dev/null && -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
@@ -41,12 +41,14 @@ alias flush-dns="dscacheutil -flushcachecd"
 alias eclipse="open -a Eclipse\ Java"
 alias sublime="open -a Sublime\ Text\ 2"
 
-# todo.txt
-PATH=$PATH:"~/todo-txt/"
-alias todo='~/todo-txt/todo.sh -d ~/todo-txt/todo.cfg'
-source ~/todo-txt/todo_completion
-complete -F _todo todo
-export TODOTXT_DEFAULT_ACTION=ls
+if [ -f ~/todo-txt/todo.sh ]; then
+  # todo.txt
+  PATH=$PATH:"~/todo-txt/"
+  alias todo='~/todo-txt/todo.sh -d ~/todo-txt/todo.cfg'
+  source ~/todo-txt/todo_completion
+  complete -F _todo todo
+  export TODOTXT_DEFAULT_ACTION=ls
+fi
 
 #set NODE_PATH
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
