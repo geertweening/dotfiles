@@ -20,11 +20,17 @@ shopt -s expand_aliases   # expand aliases in this file.
 shopt -s histappend # append to the history file instead of overwriting
 
 #enable ls colors by default
-alias ls="ls -pG"
-alias lsa="ls -a"
-#and change some colors
-export LSCOLORS=dxfxcxdxbxegedabagacad
+if [ `eval uname` == 'Darwin' ]; then
+  alias ls="ls -pG"
+  #and change some colors
+  export LSCOLORS=dxfxcxdxbxegedabagacad
+else
+  alias ls="ls --color"
+  #and change some colors
+  export LS_COLORS='di=33:fi=0:ln=95:pi=5:so=5:bd=5:cd=5:or=37:mi=0:ex=31:*.rpm=90'
+fi
 
+alias lsa="ls -a"
 alias love="~/Programming/Love2D/love.app/Contents/MacOs/love"
 alias md5sum='md5 -r'
 
