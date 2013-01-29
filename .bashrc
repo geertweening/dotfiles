@@ -151,9 +151,13 @@ update_prompt() {
 	svn_rev
 
 	if [[ `eval whoami` == 'geertweening' ]]; then
-		PS1="${txtgrn}[\t \w${txtgrn}]"
+	  if [[ `eval hostname` == 'Geert.local' ]]; then
+		  PS1="${txtgrn}[\t \w${txtgrn}]"
+	  else 
+      PS1="${txtred}[\t \w${txtred}]"
+    fi
 	else 
-		PS1="${txtgrn}[\t \u \w${txtgrn}]"
+		PS1="${txtblu}[\t \u \w${txtblu}]"
 	fi
 	PS1="$PS1 ${bldgrn}$(git_prompt)${SVN_REV}"
 
