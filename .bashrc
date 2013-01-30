@@ -6,6 +6,9 @@ if [ hash brew 2>/dev/null && -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
+# store local ip
+LOCAL_HOST_IP=`ifconfig en1 | grep inet | grep -v inet6 | awk '{print $2}'`
+
 #This makes Ctrl-S (forward-search-history) work.
 stty stop undef
 
