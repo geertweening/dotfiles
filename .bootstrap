@@ -23,13 +23,3 @@ fi
 if [[ -f ~/bash/bashperiments.sh ]]; then
     . ~/bash/bashperiments.sh
 fi
-
-
-PATH=/usr/local/bin:$PATH
-PATH=$PATH:${HOME}/bash:/Applications/XAMPP/xamppfiles/bin
-PATH=$PATH:${HOME}/Programming/Android/android-sdk-mac_x86/tools
-PATH=$PATH:${HOME}/Programming/Android/android-sdk-mac_x86/platform-tools
-PATH=$PATH:$HOME/Library/Haskell/bin
-PATH=/opt/local/bin:/opt/local/sbin:$PATH #MacPorts
-
-export PATH
