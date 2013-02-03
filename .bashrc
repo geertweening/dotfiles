@@ -185,11 +185,16 @@ update_prompt() {
 
 	# Set the title to user@host: dir
 	PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+
+	# Show current git branch name
+	#PS1="$PS1\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
+	PS1="$PS1${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
 	
 	#append return value of last command
 	#PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
 	PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
 
+	
 	
 	#PS1="\033]0;\h\007\n\e[0;32m[\t \u@\h \w]\e[0m\n> "
 
