@@ -72,6 +72,10 @@ export NODE_PATH
 #set pytyon scripts
 export PATH=/usr/local/share/python:$PATH
 
+#set android sdk tools and platform tools
+export PATH=/Users/geert/programming/android/sdk/tools:$PATH
+export PATH=/Users/geert/programming/android/sdk/platform-tools:$PATH
+
 #Regular Colors
 txtblk='\[\e[0;30m\]' # Black
 txtred='\[\e[0;31m\]' # Red
