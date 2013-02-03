@@ -1,0 +1,17 @@
+# symlink .gitconfig in ~/ -> ln -s dotfiles/.gitconfig .gitconfig
+[user]
+	name = Geert Weening
+	email = geertweening@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	editor = subl -w
+[color]
+	ui = true
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	unstage = reset HEAD
+	edit-unmerged = "!f() { git status --porcelain | grep '^UU' | cut -d' ' -f2 | sort -u ; }; $EDITOR `f`"
