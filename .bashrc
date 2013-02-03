@@ -172,12 +172,9 @@ update_prompt() {
 	#call svn_rev
 	svn_rev
 
-	if [[ `eval whoami` == 'geertweening' ]]; then
-	  if [[ `eval hostname` == 'Geert.local' ]]; then
-		  PS1="${txtgrn}[\t \w${txtgrn}]"
-	  else 
-      PS1="${txtred}[\t \w${txtred}]"
-    fi
+	if [[ `eval whoami` == 'geertweening' || `eval whoami` == 'geert' ]]; then
+		PS1="${txtgrn}[\t \w${txtgrn}]"
+      	#PS1="${txtred}[\t \w${txtred}]"
 	else 
 		PS1="${txtblu}[\t \u \w${txtblu}]"
 	fi
