@@ -22,5 +22,17 @@ resource() {
   source ~/.profile
 }
 
+copystrings() {
+    echo "copy strings 1"
+    LANG=$1
+    SOURCE=$2
+  
+    for d in `find values-* -type d`
+    do
+        echo "directory $d"
+        echo "what?"
+        awk '{split($d,array,"-")} END{print array[1]}'
+    done
+}
 
 
