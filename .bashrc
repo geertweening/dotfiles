@@ -2,8 +2,13 @@
 # export PS1="\033]0;\h\007\n\e[0;32m[\t \u@\h \w]\e[0m\n> "
 
 # if [ hash brew 2>&- && -f `brew --prefix`/etc/bash_completion ]; then
-if [ hash brew 2>/dev/null && -f `brew --prefix`/etc/bash_completion ]; then
+if [ hash brew 2>/dev/null ]; then
+  # nottin
+  echo "no brew installed"
+else
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+  fi
 fi
 
 # store local ip
