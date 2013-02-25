@@ -12,7 +12,8 @@ else
 fi
 
 # store local ip
-LOCAL_HOST_IP=`ifconfig en1 | grep inet | grep -v inet6 | awk '{print $2}'`
+DEVICE='en0'
+LOCAL_HOST_IP=`ifconfig $DEVICE | grep inet | grep -v inet6 | awk '{print $2}'`
 
 #This makes Ctrl-S (forward-search-history) work.
 stty stop undef
