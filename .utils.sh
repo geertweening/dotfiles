@@ -19,7 +19,7 @@ unrar-scene() {
 }
 
 resource() {
-  source ~/.profile
+  source ~/.bash_profile
 }
 
 copystrings() {
@@ -35,4 +35,6 @@ copystrings() {
     done
 }
 
-
+android-web() {
+    adb shell am start -a android.intent.action.VIEW $1
+}
