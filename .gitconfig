@@ -15,3 +15,6 @@
 	cp = cherry-pick
 	unstage = reset HEAD
 	edit-unmerged = "!f() { git status --porcelain | grep '^UU' | cut -d' ' -f2 | sort -u ; }; $EDITOR `f`"
+[push]
+	defaul = current
+	default = current
