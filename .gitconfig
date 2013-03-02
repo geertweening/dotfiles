@@ -13,6 +13,7 @@
 	ci = commit
 	co = checkout
 	cp = cherry-pick
+	logo = log --oneline
 	unstage = reset HEAD
 	edit-unmerged = "!f() { git status --porcelain | grep '^UU' | cut -d' ' -f2 | sort -u ; }; $EDITOR `f`"
 [push]
