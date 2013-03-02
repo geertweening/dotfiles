@@ -38,3 +38,6 @@ copystrings() {
 android-web() {
     adb shell am start -a android.intent.action.VIEW $1
 }
+
+# list of bash commands
+# find /Users/geert/programming/flipboard/android/src -name "*.java" -type f -exec sed -i "" 's;authorImageURL;authorImage;g' {} \;
