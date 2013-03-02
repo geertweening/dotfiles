@@ -36,7 +36,7 @@ $ git stash clear
 $ git checkout -t origin/iphone # track remote iphone branch on local iphone branch (automatically created)
 $ git checkout curator Classes/FLSheetViewController.h # copy file from other branch, "curator" could also be a specific commit hash
 $ git checkout -b test origin/test # check out remote branch test
-$ git branch --set-upstream android-ads origin/android-ads # set existing branch to track remote
+$ git branch --set-upstream-to android-ads origin/android-ads # set existing branch to track remote
 
 $ git tag # list tags
 $ git show-ref --tags # list tags with commit hash (lightweight) or tag hash (annotated)
