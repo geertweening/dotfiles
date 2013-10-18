@@ -5,7 +5,8 @@
 [credential]
 	helper = osxkeychain
 [core]
-	editor = subl -w
+	editor = vim
+	autocrlf = false
 [color]
 	ui = true
 [alias]
@@ -16,6 +17,6 @@
 	logo = log --oneline
 	unstage = reset HEAD
 	edit-unmerged = "!f() { git status --porcelain | grep '^UU' | cut -d' ' -f2 | sort -u ; }; $EDITOR `f`"
+	gbl="git for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
 [push]
-	defaul = current
 	default = current
