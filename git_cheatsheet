@@ -58,3 +58,9 @@ $ git reset --soft ^HEAD # undo last commit, back to staging
 $ git reset --hard HEAD # undo merge
 
 $ git push -f origin android-tablet-no-scroll # force push to remote branch
+
+# branch bankrupcy
+$ git checkout master
+$ git checkout -b cleaned_up_branch
+$ git merge --squash private_feature_branch
+$ git reset
