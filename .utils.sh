@@ -39,5 +39,9 @@ android-web() {
     adb shell am start -a android.intent.action.VIEW $1
 }
 
+sync_movies() {
+    rsync -rtvu --delete /Users/geert/Movies/ /Volumes/Passport/Movies/
+}
+
 # list of bash commands
 # find /Users/geert/programming/flipboard/android/src -name "*.java" -type f -exec sed -i "" 's;authorImageURL;authorImage;g' {} \;
