@@ -168,39 +168,38 @@ update_prompt() {
 	#https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Advanced_return_value_visualisation
 	#Basically, prepend the prompt with a green 0 if the last command returned 0, or prepend it with a red [error code] if not.	
 	if [ $RET == 0 ]; then
-		RET_VALUE="_${txtgrn}$RET"
+		RET_VALUE="${txtgrn}$RET"
 	else
-		RET_VALUE="_${bldred}$RET"
+		RET_VALUE="${bldred}$RET"
 	fi
 
 	#call svn_rev
-	svn_rev
+	# svn_rev
 
-	if [[ `eval whoami` == 'geertweening' || `eval whoami` == 'geert' ]]; then
-		PS1="${txtgrn}[\t \w${txtgrn}]"
-      	#PS1="${txtred}[\t \w${txtred}]"
-	else 
-		PS1="${txtblu}[\t \u \w${txtblu}]"
-	fi
-	PS1="$PS1 ${bldgrn}$(git_prompt)${SVN_REV}"
+	# if [[ `eval whoami` == 'geertweening' || `eval whoami` == 'geert' ]]; then
+	# 	PS1="${txtgrn}[\t \w${txtgrn}]"
+ #      	#PS1="${txtred}[\t \w${txtred}]"
+	# else 
+	# 	PS1="${txtblu}[\t \u \w${txtblu}]"
+	# fi
+	# PS1="$PS1 ${bldgrn}$(git_prompt)${SVN_REV}"
 
 	#http://www.fileformat.info/info/unicode/char/26a1/index.htm
-	PS1="$PS1${txtgrn}"
+	# PS1="$PS1${txtgrn}"
 
 	# Set the title to user@host: dir
-	PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+	# PS1="\[\e]0;\u@\h: \w\a\]$PS1"
 
 	# Show current git branch name
-	#PS1="$PS1\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
-	PS1="$PS1${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
+	# PS1="$PS1\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
+	# PS1="$PS1${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
 	
-	#append return value of last command
-	#PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
-	PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
+ 	# PS1="\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
 
+	#append return value of last command
+	# PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
 	
-	
-	#PS1="\033]0;\h\007\n\e[0;32m[\t \u@\h \w]\e[0m\n> "
+	PS1="\033]0;\h\007\n$RET_VALUE \e[0;32m[\t \w] ${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\e[0m \n> "
 
 }
 
