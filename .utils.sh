@@ -40,7 +40,7 @@ android-web() {
 }
 
 sync_movies() {
-    rsync -rtvu --delete /Users/geert/Movies/ /Volumes/Passport/Movies/
+    rsync -rtvu /Users/geert/Movies/ /Volumes/Passport/Movies/
 }
 
 # list of bash commands
