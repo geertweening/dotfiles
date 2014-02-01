@@ -43,5 +43,10 @@ sync_movies() {
     rsync -rtvu /Users/geert/Movies/ /Volumes/Passport/Movies/
 }
 
+sync_library() {
+    rsync -rtvu /Users/geert/Library/Mail/ /Volumes/Passport/Backups_Mac_13_2012/Mail/
+    rsync -rtvu /Users/geert/Library/Keychains/ /Volumes/Passport/Backups_Mac_13_2012/Keychains/
+}
+
 # list of bash commands
 # find /Users/geert/programming/flipboard/android/src -name "*.java" -type f -exec sed -i "" 's;authorImageURL;authorImage;g' {} \;
