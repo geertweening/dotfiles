@@ -19,7 +19,7 @@ unrar-scene() {
 }
 
 resource() {
-  source ~/.bash_profile
+  source ~/.profile
 }
 
 copystrings() {

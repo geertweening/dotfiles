@@ -1,25 +1,12 @@
-# Flipboard stuff
-if [[ -f ~/dotfiles/.flipboard ]]; then
-    . ~/dotfiles/.flipboard
-fi
-
 # aliases and function
-if [[ -f ~/dotfiles/.bashrc ]]; then
-    . ~/dotfiles/.bashrc
+if [[ -f ~/programming/geertweening/dotfiles/.bashrc ]]; then
+    . ~/programming/geertweening/dotfiles/.bashrc
 fi
 
 if [[ -f ~/.git-completion.bash ]]; then
     . ~/.git-completion.bash
 fi
 
-if [[ -f ~/dotfiles/.utils.sh ]]; then
-    . ~/dotfiles/.utils.sh
-fi
-
-if [[ -f ~/bash/android.sh ]]; then
-    . ~/bash/android.sh
-fi
-
-if [[ -f ~/bash/bashperiments.sh ]]; then
-    . ~/bash/bashperiments.sh
+if [[ -f ~/programming/geertweening/dotfiles/.utils.sh ]]; then
+    . ~/programming/geertweening/dotfiles/.utils.sh
 fi
