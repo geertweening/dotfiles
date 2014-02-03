@@ -81,6 +81,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 # export PATH=/Users/geert/programming/android/sdk/platform-tools:$PATH
 
 # add user bin
+export PATH=~/bin:$PATH
 
 #Regular Colors
 txtblk='\[\e[0;30m\]' # Black
