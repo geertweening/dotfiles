@@ -71,14 +71,16 @@ NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export NODE_PATH
 
 #set pytyon scripts
-export PATH=/usr/local/share/python:$PATH
+# export PATH=/usr/local/share/python:$PATH
 
-#node ipm-installed libaries
+#node npm-installed libaries
 export PATH=/usr/local/share/npm/bin:$PATH
 
 #set android sdk tools and platform tools
-export PATH=/Users/geert/programming/android/sdk/tools:$PATH
-export PATH=/Users/geert/programming/android/sdk/platform-tools:$PATH
+# export PATH=/Users/geert/programming/android/sdk/tools:$PATH
+# export PATH=/Users/geert/programming/android/sdk/platform-tools:$PATH
+
+# add user bin
 
 #Regular Colors
 txtblk='\[\e[0;30m\]' # Black
@@ -121,46 +123,14 @@ txtrst='\[\e[0m\]'    # Text Reset
 # grep options
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 
-#Thanks Gary Bernhardt.
-minutes_since_last_commit() {
-	now=`date +%s`
-	last_commit=`git log --pretty=format:'%at' -1`
-	seconds_since_last_commit=$((now - last_commit))
-	minutes_since_last_commit=$((seconds_since_last_commit / 60))
-	echo $minutes_since_last_commit
-}
-
-# Revision of the svn repo in the current directory
-svn_rev() {
-	unset SVN_REV
-	local rev=`svn info 2>/dev/null | grep -i "Revision" | cut -d ' ' -f 2`
-	if test $rev
-		then
-			SVN_REV=" ${bldgrn}svn:${txtrst}$rev"
-	fi
-}
-
-git_prompt() {
-	if [[ -f ~/.git-completion.bash ]]; then
-		local g="$(__gitdir)"
-		if [ -n "$g" ]; then
-			local MINUTES_SINCE_LAST_COMMIT=`minutes_since_last_commit`
-			if [ "$MINUTES_SINCE_LAST_COMMIT" -gt 30 ]; then
-				local COLOR=${bldred}
-			elif [ "$MINUTES_SINCE_LAST_COMMIT" -gt 10 ]; then
-				local COLOR=${bldylw}
-			else
-				local COLOR=${bldgrn}
-			fi
-			local SINCE_LAST_COMMIT="${COLOR}$(minutes_since_last_commit)m${bldgrn}"
-			# __git_ps1 is from the Git source tree's contrib/completion/git-completion.bash
-			local GIT_PROMPT=`__git_ps1 "(%s|${SINCE_LAST_COMMIT})"`
-			echo ${GIT_PROMPT}
-		fi
-	fi
-}
-
 GIT_PS1_SHOWDIRTYSTATE=1
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+}
 
 update_prompt() {
 	RET=$?;
@@ -173,34 +143,7 @@ update_prompt() {
 		RET_VALUE="${bldred}$RET"
 	fi
 
-	#call svn_rev
-	# svn_rev
-
-	# if [[ `eval whoami` == 'geertweening' || `eval whoami` == 'geert' ]]; then
-	# 	PS1="${txtgrn}[\t \w${txtgrn}]"
- #      	#PS1="${txtred}[\t \w${txtred}]"
-	# else 
-	# 	PS1="${txtblu}[\t \u \w${txtblu}]"
-	# fi
-	# PS1="$PS1 ${bldgrn}$(git_prompt)${SVN_REV}"
-
-	#http://www.fileformat.info/info/unicode/char/26a1/index.htm
-	# PS1="$PS1${txtgrn}"
-
-	# Set the title to user@host: dir
-	# PS1="\[\e]0;\u@\h: \w\a\]$PS1"
-
-	# Show current git branch name
-	# PS1="$PS1\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
-	# PS1="$PS1${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
-	
- 	# PS1="\[\033[38m\]\u@\h \w \[\033[32m\]\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\[\033[37m\]$\[\033[00m\] "
-
-	#append return value of last command
-	# PS1="\033]0;\h\007\n\e$RET_VALUE $PS1${txtrst}\n> "
-	
-	PS1="\033]0;\h\007\n$RET_VALUE \e[0;32m[\t \w] ${txtblu}\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`\e[0m \n> "
-
+	PS1="\033]0;\h\007\n$RET_VALUE \e[0;32m[\t \w] ${txtblu}$(parse_git_branch)\e[0m \n> "
 }
 
 PROMPT_COMMAND=update_prompt
