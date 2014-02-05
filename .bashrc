@@ -44,10 +44,10 @@ alias love="~/Programming/Love2D/love.app/Contents/MacOs/love"
 alias md5sum='md5 -r'
 
 #display git cheatsheet
-alias git-cheats="cat ~/dotfiles/git_cheatsheet"
+alias git-cheats="cat ~/programming/geertweening/dotfiles/git_cheatsheet"
 
 #display android cheatsheet
-alias android-cheats="cat ~/dotfiles/android_cheatsheet"
+alias android-cheats="cat ~/programming/geertweening/dotfiles/android_cheatsheet"
 
 #flush dns
 alias flush-dns="dscacheutil -flushcachecd"
