@@ -77,8 +77,8 @@ export NODE_PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 #set android sdk tools and platform tools
-# export PATH=/Users/geert/programming/android/sdk/tools:$PATH
-# export PATH=/Users/geert/programming/android/sdk/platform-tools:$PATH
+export PATH=/Users/geert/programming/android-sdk/tools:$PATH
+export PATH=/Users/geert/programming/android-sdk/platform-tools:$PATH
 
 # add user bin
 export PATH=~/bin:$PATH
