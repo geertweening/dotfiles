@@ -70,6 +70,9 @@ NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 export NODE_PATH
 
+# set /usr/local/bin so brew programs get picked before system ones
+export PATH=/usr/local/bin:$PATH
+
 #set pytyon scripts
 # export PATH=/usr/local/share/python:$PATH
 
