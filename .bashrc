@@ -54,7 +54,7 @@ alias flush-dns="dscacheutil -flushcachecd"
 
 # program aliases
 alias eclipse="open -a Eclipse\ Java"
-alias sublime="open -a Sublime\ Text\ 2"
+alias sublime="open -a Sublime\ Text\ 2"  
 
 if [ -f ~/todo-txt/todo.sh ]; then
   # todo.txt
@@ -64,6 +64,10 @@ if [ -f ~/todo-txt/todo.sh ]; then
   complete -F _todo todo
   export TODOTXT_DEFAULT_ACTION=ls
 fi
+
+# start and stop postgres server
+alias pg_start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/log/postgres-log'
+alias pg_stop='pg_ctl stop -D /usr/local/var/postgres'
 
 #set NODE_PATH
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
