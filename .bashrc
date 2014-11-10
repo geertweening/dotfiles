@@ -54,7 +54,7 @@ alias flush-dns="dscacheutil -flushcachecd"
 
 # program aliases
 alias eclipse="open -a Eclipse\ Java"
-alias sublime="open -a Sublime\ Text\ 2"  
+alias sublime="open -a Sublime\ Text\ 2"
 
 if [ -f ~/todo-txt/todo.sh ]; then
   # todo.txt
@@ -144,7 +144,7 @@ update_prompt() {
 	RET=$?;
 
 	#https://wiki.archlinux.org/index.php/Color_Bash_Prompt#Advanced_return_value_visualisation
-	#Basically, prepend the prompt with a green 0 if the last command returned 0, or prepend it with a red [error code] if not.	
+	#Basically, prepend the prompt with a green 0 if the last command returned 0, or prepend it with a red [error code] if not.
 	if [ $RET == 0 ]; then
 		RET_VALUE="${txtgrn}$RET"
 	else

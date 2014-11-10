@@ -48,7 +48,7 @@ $ git config user.email "example@email.com"
 $ git config --global core.editor "mate -w" # default editor for commit messages
 $ git config --global core.excludesfile "~/.gitignore_global_osx"
 
-$ git update-index --assume-unchanged <file> # To temporarily ignore changes in a file: 
+$ git update-index --assume-unchanged <file> # To temporarily ignore changes in a file:
 $ git update-index --no-assume-unchanged <file> # To track changes again:
 $ git ls-files --deleted -z | git update-index --assume-unchanged -z --stdin  # ignore all deleted files
 $ git ls-files -v | grep ^"[a-z]" # list assume-unchanged files
@@ -64,3 +64,5 @@ $ git checkout master
 $ git checkout -b cleaned_up_branch
 $ git merge --squash private_feature_branch
 $ git reset
+
+$ git push <remotename> <commit SHA>:<remotebranchname>
