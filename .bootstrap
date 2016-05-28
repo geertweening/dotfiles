@@ -3,10 +3,6 @@ if [[ -f ~/programming/geertweening/dotfiles/.bashrc ]]; then
     . ~/programming/geertweening/dotfiles/.bashrc
 fi
 
-if [[ -f ~/.git-completion.bash ]]; then
-    . ~/.git-completion.bash
-fi
-
 if [[ -f ~/programming/geertweening/dotfiles/.utils.sh ]]; then
     . ~/programming/geertweening/dotfiles/.utils.sh
 fi

@@ -1,7 +1,3 @@
-# Arthur style prompt
-# export PS1="\033]0;\h\007\n\e[0;32m[\t \u@\h \w]\e[0m\n> "
-
-# if [ hash brew 2>&- && -f `brew --prefix`/etc/bash_completion ]; then
 if [ hash brew 2>/dev/null ]; then
   # nottin
   echo "no brew installed"
@@ -14,11 +10,12 @@ fi
 # store local ip
 DEVICE='en0'
 LOCAL_HOST_IP=`ifconfig $DEVICE | grep inet | grep -v inet6 | awk '{print $2}'`
+echo "Local host: $LOCAL_HOST_IP"
 
 #This makes Ctrl-S (forward-search-history) work.
 stty stop undef
 
-export HISTSIZE=100000 #bash history will save this many commands.
+export HISTSIZE=10000 #bash history will save this many commands.
 export HISTFILESIZE=${HISTSIZE} #bash will remember this many commands.
 export HISTCONTROL=ignoredups #ignore duplicate commands
 export HISTIGNORE="ls:pwd:exit:clear" #don't put this in the history.
@@ -40,7 +37,6 @@ else
 fi
 
 alias lsa="ls -a"
-alias love="~/Programming/Love2D/love.app/Contents/MacOs/love"
 alias md5sum='md5 -r'
 
 #display git cheatsheet
@@ -51,19 +47,6 @@ alias android-cheats="cat ~/programming/geertweening/dotfiles/android_cheatsheet
 
 #flush dns
 alias flush-dns="dscacheutil -flushcachecd"
-
-# program aliases
-alias eclipse="open -a Eclipse\ Java"
-alias sublime="open -a Sublime\ Text\ 2"
-
-if [ -f ~/todo-txt/todo.sh ]; then
-  # todo.txt
-  PATH=$PATH:"~/todo-txt/"
-  alias todo='~/todo-txt/todo.sh -d ~/todo-txt/todo.cfg'
-  source ~/todo-txt/todo_completion
-  complete -F _todo todo
-  export TODOTXT_DEFAULT_ACTION=ls
-fi
 
 # start and stop postgres server
 alias pg_start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/log/postgres-log'
@@ -77,15 +60,8 @@ export NODE_PATH
 # set /usr/local/bin so brew programs get picked before system ones
 export PATH=/usr/local/bin:$PATH
 
-#set pytyon scripts
-# export PATH=/usr/local/share/python:$PATH
-
 #node npm-installed libaries
 export PATH=/usr/local/share/npm/bin:$PATH
-
-#set android sdk tools and platform tools
-export PATH=/Users/geert/programming/android-sdk/tools:$PATH
-export PATH=/Users/geert/programming/android-sdk/platform-tools:$PATH
 
 # add user bin
 export PATH=~/bin:$PATH
